@@ -1,0 +1,307 @@
+/* General container for the login page */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333333; /* Charcoal background */
+  padding: 1rem; /* Add padding for better spacing on smaller screens */
+}
+
+/* Form styling */
+.login-form {
+  padding: 2rem;
+  background-color: #FFFFFF; /* White form container */
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  width: 1000px;
+  height: 500px;
+  text-align: center;
+  color: #008080; /* Teal text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Adds space between form elements */
+}
+
+/* Header styling */
+.login-header {
+  margin-bottom: 1rem;
+}
+
+.login-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #008080; /* Teal */
+}
+
+.login-header p {
+  color: #AAAAAA; /* Accent color: Gray */
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* Input fields styling */
+.login-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+  border: 1px solid #AAAAAA; /* Gray border */
+  border-radius: 0.5rem;
+  color: #333333; /* Charcoal text color */
+  font-size: 1rem;
+}
+
+.login-input::placeholder {
+  color: #AAAAAA; /* Placeholder color: Gray */
+}
+
+/* Password container styling */
+/* Password container styling */
+.password-container {
+  position: relative;
+  width: 136%; /* Ensure width is 100% for responsiveness */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-password {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  color: #008080; /* Teal */
+  margin-left: 1rem; /* Add margin between input and checkbox */
+}
+
+.show-password input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Button styling */
+.login-button1 {
+  width: 108%;
+  padding: 1rem;
+  background-color: #00A0A0; /* Lighter Teal */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button1:hover {
+  background-color: #008080; /* Teal on hover */
+}
+
+/* Social login section */
+.social-login {
+  margin-top: 1.5rem;
+  color: #AAAAAA; /* Gray */
+}
+
+.social-login p {
+  margin-top: -1em;
+  margin-right:-2em ;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-right:-2em ;
+
+  margin-bottom: 1rem;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.social-icons img:hover {
+  opacity: 0.8;
+}
+
+/* Link styling */
+.register-link {
+  color: #AAAAAA; /* Gray */
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.register-link a {
+  color: #008080; /* Teal link */
+  text-decoration: underline;
+}
+
+.register-link a:hover {
+  color: #00A0A0; /* Lighter Teal on hover */
+}
+
+/* Forgot password link */
+.recovery-container {
+  text-align: right;
+  width: 100%;
+}
+
+.recovery-link {
+  color: #AAAAAA; /* Gray */
+  font-size: 0.9rem;
+}
+
+.recovery-link:hover {
+  color: #008080; /* Teal on hover */
+}
+/* General container for the signup page */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333333; /* Charcoal background */
+  padding: 1rem; /* Add padding for better spacing on smaller screens */
+}
+
+/* Form styling */
+.signup-form {
+  padding: 2rem;
+  background-color: #FFFFFF; /* White form container */
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  width: 1000px;
+  height: 700px; /* Adjusted height for additional fields */
+  text-align: center;
+  color: #008080; /* Teal text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Adds space between form elements */
+}
+
+/* Header styling */
+.signup-header {
+  margin-bottom: 1rem;
+}
+
+.signup-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #008080; /* Teal */
+}
+
+.signup-header p {
+  color: #AAAAAA; /* Accent color: Gray */
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* Input fields styling */
+.signup-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+  border: 1px solid #AAAAAA; /* Gray border */
+  border-radius: 0.5rem;
+  color: #333333; /* Charcoal text color */
+  font-size: 1rem;
+}
+
+.signup-input::placeholder {
+  color: #AAAAAA; /* Placeholder color: Gray */
+}
+
+/* Password container styling */
+.password-container1 {
+  position: relative;
+  width: 121%; /* Ensure width is 100% for responsiveness */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-password {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  color: #008080; /* Teal */
+  margin-left: 1rem; /* Add margin between input and checkbox */
+}
+
+.show-password input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Button styling */
+.signup-button {
+  width: 103%;
+  padding: 1rem;
+  background-color: #00A0A0; /* Lighter Teal */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-button:hover {
+  background-color: #008080; /* Teal on hover */
+}
+
+/* Social login section */
+.social-login {
+  margin-top: 1.5rem;
+  color: #AAAAAA; /* Gray */
+}
+
+.social-login p {
+  margin-top: -1em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.social-icons img:hover {
+  opacity: 0.8;
+}
+
+/* Link styling */
+.register-link {
+  color: #AAAAAA; /* Gray */
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.register-link a {
+  color: #008080; /* Teal link */
+  text-decoration: underline;
+}
+
+.register-link a:hover {
+  color: #00A0A0; /* Lighter Teal on hover */
+}
