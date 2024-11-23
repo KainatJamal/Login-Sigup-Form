@@ -22,15 +22,24 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError('');
-
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('/Home'); 
-    } catch (error) {
-      setError('Failed to login: ' + error.message);
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            localStorage.setItem('token', data.token);
+            navigate('/Home');
+        } else {
+            setError(data.message);
+        }
+    } catch (err) {
+        setError('Failed to login');
     }
-  };
+};
 
   const handleGoogleSignIn = async () => {
     try {

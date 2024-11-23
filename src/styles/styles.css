@@ -1,3 +1,22 @@
+/* src/components/Home.css */
+.home-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #f5f5f5; /* Light gray background */
+  color: #333; /* Dark text color */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #008080; /* Teal color for the heading */
+}
+
+p {
+  font-size: 1.2rem;
+  color: #666; /* Dark gray for the paragraph */
+}
+
+
 /* General container for the login page */
 .login-container {
   display: flex;
@@ -14,7 +33,7 @@
   background-color: #FFFFFF; /* White form container */
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  width: 1000px;
+  width: 800px;
   height: 500px;
   text-align: center;
   color: #008080; /* Teal text color */
@@ -80,6 +99,28 @@
   margin-right: 5px;
 }
 
+.show-password1 {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  color: #008080; /* Teal */
+  margin-right: 40px; /* Add margin between input and checkbox */
+}
+
+.show-password1 input[type="checkbox"] {
+  margin-right: 10px;
+}
+.show-password2 {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  color: #008080; /* Teal */
+  margin-right: 40px; /* Add margin between input and checkbox */
+}
+
+.show-password2 input[type="checkbox"] {
+  margin-right: 10px;
+}
 /* Button styling */
 .login-button1 {
   width: 108%;
@@ -177,7 +218,7 @@
   background-color: #FFFFFF; /* White form container */
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  width: 1000px;
+  width: 800px;
   height: 700px; /* Adjusted height for additional fields */
   text-align: center;
   color: #008080; /* Teal text color */
@@ -207,7 +248,7 @@
 
 /* Input fields styling */
 .signup-input {
-  width: 100%;
+  width: 70%;
   padding: 0.75rem;
   margin-bottom: 1rem;
   background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
@@ -224,10 +265,11 @@
 /* Password container styling */
 .password-container1 {
   position: relative;
-  width: 121%; /* Ensure width is 100% for responsiveness */
+  width: 100%; /* Ensure width is 100% for responsiveness */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left:85px;
 }
 
 .show-password {
@@ -244,7 +286,7 @@
 
 /* Button styling */
 .signup-button {
-  width: 103%;
+  width: 75%;
   padding: 1rem;
   background-color: #00A0A0; /* Lighter Teal */
   color: white;

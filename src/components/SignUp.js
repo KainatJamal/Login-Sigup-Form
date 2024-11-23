@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import googleIcon from '../components/png-clipart-google-logo-google-logo-google-search-icon-google-text-logo-thumbnail.png';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth, db } from './firebase';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import '../styles/styles.css';
+
 const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -18,49 +19,70 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    setError('');
-    
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
     }
-  
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  
-      await setDoc(doc(db, 'users', userCredential.user.uid), {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        createdAt: new Date(),
+      const response = await fetch('http://localhost:5000/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, lastName, email, password }),
       });
-  
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError(errorData.message);
+        return;
+      }
+
       alert('User registered successfully');
-      navigate('/Home'); 
-    } catch (error) {
-      setError(error.message);
+      navigate('/Home');
+    } catch (err) {
+      setError('Failed to sign up');
     }
   };
-  
+
   const handleGoogleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-  
-      await setDoc(doc(db, 'users', result.user.uid), {
-        firstName: result.user.displayName.split(' ')[0],
-        lastName: result.user.displayName.split(' ')[1],
-        email: result.user.email,
+
+      const user = result.user;
+
+      // Save user data to Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        firstName: user.displayName.split(' ')[0] || '',
+        lastName: user.displayName.split(' ')[1] || '',
+        email: user.email,
         createdAt: new Date(),
       });
-  
+
+      // Send user data to PostgreSQL via the backend API
+      const response = await fetch('http://localhost:5000/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: user.displayName.split(' ')[0] || '',
+          lastName: user.displayName.split(' ')[1] || '',
+          email: user.email,
+          password: '', // You can set an empty password for Google sign-ups or generate a random one if necessary
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError(errorData.message);
+        return;
+      }
+
       alert('User signed up with Google successfully');
-      navigate('/Home'); 
+      navigate('/Home');
     } catch (error) {
       setError('Failed to sign in with Google: ' + error.message);
     }
   };
-  
+
   return (
     <div className="signup-container">
       <div className="signup-form">
@@ -103,7 +125,7 @@ const SignUp = () => {
               className="signup-input"
               required
             />
-            <label className="show-password">
+            <label className="show-password1">
               <input
                 type="checkbox"
                 checked={showPassword}
@@ -121,7 +143,7 @@ const SignUp = () => {
               className="signup-input"
               required
             />
-            <label className="show-password">
+            <label className="show-password2">
               <input
                 type="checkbox"
                 checked={showConfirmPassword}
